@@ -1,2 +1,2 @@
 # alx-backend-python
-A repo containing tasks relating to Python on the ALX SE Short Specs
+A repo containing tasks on Python on the ALX SE Short Specs
