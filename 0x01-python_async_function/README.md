@@ -8,3 +8,4 @@ I learnt:
 - How to run concurrent coroutines
 - How to create asyncio tasks
 - How to use the random module
+- Learnt about the Future type (like JS Promises for async stuff)
