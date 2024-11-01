@@ -10,7 +10,6 @@ from utils import (
 
 class TestAccessNestedMap(TestCase):
     """Tests the access_nested_map function."""
-    # Check if every item
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
@@ -24,3 +23,17 @@ class TestAccessNestedMap(TestCase):
     ) -> None:
         """Tests the return value of the access_nested_map's output."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
+
+    @parameterized.expand([
+        ({}, ("a",), KeyError),
+        ({"a": 1}, ("a", "b"), KeyError),
+    ])
+    def test_acccess_nested_map_exception(
+        self,
+        nested_map: Dict,
+        path: Tuple[str],
+        exception: Exception
+    ) -> None:
+        """Tests if a KeyError is raised for invalid key entries."""
+        with self.assertRaises(exception):
+            access_nested_map(nested_map, path)
